@@ -4,6 +4,15 @@ Router.configure({
 });
 
 Router.map( function () {
+  this.route('random_article',{
+    path : '/',
+    template : 'random_article',
+    data: {
+        randomarticle: function() { Meteor.subscribe('randomArticle'); return RandomArticle.find(); },
+        readnext: function(){ Meteor.subscribe('readnext',Router.current().params._id); return ReadNext.find(); }
+    }
+  });
+
   this.route('search',{
     path : '/search',
     template : 'search',

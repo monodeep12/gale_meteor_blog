@@ -22,7 +22,6 @@ Meteor.methods({
 Meteor.publish('article', function(id) {
   var self = this;
   try {
-        console.log('===========');
         var response = HTTP.get('http://127.0.0.1:8000/article/' + id);
         data = JSON.parse(response.content)[0].fields;
         var item = {}
@@ -68,7 +67,6 @@ Meteor.publish('readnext', function(id) {
             item.hero_image = d.fields.hero_image;
             self.added('readnext', Random.id(), item);
         });
-    console.log('-------------------');
     self.ready();
 
   } catch(error) {
@@ -104,6 +102,36 @@ Meteor.publish('searchResults', function(q) {
 
   } catch(error) {
     console.log('TEST SEARCH ERROR');
+    console.log(error);
+  }
+});
+
+
+
+Meteor.publish('randomArticle', function() {
+  var self = this;
+  try {
+        var response = HTTP.get('http://127.0.0.1:8000/random_article/');
+        data = JSON.parse(response.content)[0].fields;
+        var item = {}
+        console.log(data.title);
+        item.pk = JSON.parse(response.content)[0].pk;
+        item.category = data.category;
+        item.body = data.body;
+        item.summary = data.body
+        item.author = data.author;
+        item.title = data.title;
+        item.created = data.created;
+        item.hero_image = data.hero_image;
+        item.articleExists = true
+        self.added('randomarticle', Random.id(), item);
+        self.ready();
+
+  } catch(error) {
+    var item = {}
+    item.articleExists = false
+    self.added('randomarticle', Random.id(), item);
+    self.ready();
     console.log(error);
   }
 });

@@ -22,8 +22,8 @@ Template.registerHelper('formatDate', function(date) {
   return moment(date).format('MMM DD, YYYY');
 });
 
-Template.registerHelper('truncatewords', function(passedString) {
-    var fooText = passedString.split(" ").splice(0,50).join(" "); //same as truncate.
+Template.registerHelper('truncatewords', function(passedString,wordCount) {
+    var fooText = passedString.split(" ").splice(0,parseInt(wordCount)).join(" "); //same as truncate.
     return new Spacebars.SafeString(fooText)
 });
 

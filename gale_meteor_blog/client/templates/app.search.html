@@ -20,7 +20,7 @@
                     {{ formatDate created }}
                     by <a href="#">{{  author }}</a>
                 </p>
-               {{#markdown}} {{ truncatewords body }} {{/markdown}}
+               {{#markdown}} {{ truncatewords body 50 }} {{/markdown}}
             </div>
         </div>
 

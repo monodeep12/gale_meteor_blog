@@ -1,0 +1,21 @@
+<template name="random_article">
+    {{#each randomarticle}}
+    <div class="post">
+        <h2><a href="article/{{pk}}/">{{ title }}</a></h2>
+        <p class="meta">
+            {{ formatDate created }}
+            by <a href="#">{{  author }}</a>
+        </p>
+        <p>
+            <img src="{{ hero_image}}" class="img-responsive">
+        </p>
+
+            {{#markdown}} {{ truncatewords body 100}} {{/markdown}}
+
+
+
+    </div>
+    {{/ each}}
+
+    {{> read_next}}
+</template>

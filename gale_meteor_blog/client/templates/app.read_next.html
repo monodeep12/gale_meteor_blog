@@ -1,0 +1,35 @@
+<template name="read_next">
+    <div id="read_next">
+        <div class="row">
+            <hr>
+            <div class="clearfix">
+                <div class="pull-left">
+                    <h2>What to read next?</h2>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    &nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+        <div class="row">
+            {{#each readnext}}
+            <div class="col-sm-4 col-md-3">
+
+                <div class="thumbnail">
+                    <div style="height:100px;overflow:hidden;">
+                        <a href="/article/{{ pk }}/"> <img src="{{ hero_image }}" alt="{{ slug }}"></a>
+                    </div>
+
+                    <a href="/article/{{ pk }}/"><h4>{{ title }}</h4></a>
+
+                </div>
+
+            </div>
+            {{/ each}}
+        </div>
+    </div>
+</template>
