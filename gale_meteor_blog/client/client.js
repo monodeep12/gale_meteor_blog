@@ -1,3 +1,23 @@
+Meteor.startup(function() {
+
+        return SEO.config({
+            title: 'Gale Blog (Meteor)',
+            meta: {
+                'description': 'Gale blog developed in meteor'
+            },
+            og: {
+                'image': 'http://sporvognsrejser.dk/fotos/logoer/graakallbanen_gb.png'
+           }
+        });
+
+});
+
+Template.article_detail.rendered = function() {
+    try {
+        FB.XFBML.parse();
+    }catch(e) {}
+};
+
 Template.registerHelper('formatDate', function(date) {
   return moment(date).format('MMM DD, YYYY');
 });

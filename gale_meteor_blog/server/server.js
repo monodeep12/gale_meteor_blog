@@ -29,6 +29,7 @@ Meteor.publish('article', function(id) {
         item.pk = JSON.parse(response.content)[0].pk;
         item.category = data.category;
         item.body = data.body;
+        item.summary = data.body
         item.author = data.author;
         item.title = data.title;
         item.created = data.created;
