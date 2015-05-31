@@ -1,0 +1,55 @@
+<template name="layout">
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="blog-header">
+            <!--<h1 class="blog-title">The Bootstrap Blog</h1>
+            <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>-->
+        </div>
+
+        <div class="row">
+            <div class="col-md-2" id="leftCol">
+                <ul class="nav nav-stacked" id="sidebar">
+                    <li><a href="#sec0">
+                        <img src="http://sporvognsrejser.dk/fotos/logoer/graakallbanen_gb.png" width="50px" height="50px">
+                    </a></li>
+                    <li>
+                        <a href="{{pathFor 'search'}}">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a></li>
+                    <li><a href="/">
+                        <span class="glyphicon glyphicon-home" style="margin-left:15px;"></span>
+                    </a></li>
+                    <li><a href="#sec2">
+                        <span class="glyphicon glyphicon-user" style="margin-left:15px;"></span>
+                    </a></li>
+                    <li><a href="#sec2">
+                        <span class="glyphicon glyphicon-earphone" style="margin-left:15px;"></span>
+                    </a></li>
+                </ul>
+            </div>
+            <!-- /.blog-sidebar -->
+
+
+            <div class="col-md-10 blog-main">
+                {{> yield}}
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+        <div class="blog-footer">
+
+            <a href="#">Back to top</a>
+
+        </div>
+    </div>
+</template>

@@ -1,0 +1,54 @@
+<template name="article_detail">
+    <div class="post" >
+        {{#each article}}
+        {{#if articleExists}}
+        <h2><a href="#">{{ title }}</a></h2>
+        <p class="meta">
+            {{ formatDate created}}
+            by <a href="#">{{ author }}</a>
+        </p>
+        <p>
+            <img src="{{ hero_image}}" width="800">
+        </p>
+        {{#markdown}} {{ body}} {{/markdown}}
+        {{else}}
+        <p>Sorry! This article does not exist.</p>
+        {{/ if}}
+        {{/ each}}
+    </div>
+
+    <div id="read_next">
+        <div class="row">
+            <hr>
+            <div class="clearfix">
+                <div class="pull-left">
+                    <h2>What to read next?</h2>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    &nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+        <div class="row">
+            {{#each readnext}}
+            <div class="col-sm-4 col-md-3">
+
+                <div class="thumbnail">
+                    <div style="height:100px;overflow:hidden;">
+                        <a href="/article/{{ pk }}/"> <img src="{{ hero_image }}" alt="{{ slug }}"></a>
+                    </div>
+
+                    <a href="/article/{{ pk }}/"><h4>{{ title }}</h4></a>
+
+                </div>
+
+            </div>
+            {{/ each}}
+        </div>
+    </div>
+
+</template>
